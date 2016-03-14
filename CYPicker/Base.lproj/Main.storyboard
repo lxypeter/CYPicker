@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="datePicker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lQ-Vz-vYP">
+                                <rect key="frame" x="16" y="40" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-03-10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElK-kf-l0P">
+                                <rect key="frame" x="46" y="75" width="92" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="oGV-dE-GQl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1F-uT-9qn">
+                                <rect key="frame" x="269" y="75" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="9g4-ti-AEZ"/>
+                                </constraints>
+                                <state key="normal" title="选择日期"/>
+                                <connections>
+                                    <action selector="showDatePicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HMt-8f-dfe"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DataSinglePicker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VjD-0r-hYG">
+                                <rect key="frame" x="15" y="125" width="345" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选中第 项，【】" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8F-Fb-CRx">
+                                <rect key="frame" x="46" y="160.5" width="123.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLB-bb-3uv">
+                                <rect key="frame" x="269" y="160" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Bem-B7-oGP"/>
+                                    <constraint firstAttribute="width" constant="60" id="N25-pK-f0X"/>
+                                </constraints>
+                                <state key="normal" title="选择"/>
+                                <connections>
+                                    <action selector="showDataSinglePicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BRk-am-3Sj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="A1F-uT-9qn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0Uh-ul-AEa"/>
+                            <constraint firstItem="VjD-0r-hYG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="1c3-Ie-B2c"/>
+                            <constraint firstItem="9lQ-Vz-vYP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="DtB-BW-n01"/>
+                            <constraint firstAttribute="trailing" secondItem="vLB-bb-3uv" secondAttribute="trailing" constant="46" id="EsM-Sm-5ZB"/>
+                            <constraint firstItem="9lQ-Vz-vYP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="J6y-ZD-Niv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vLB-bb-3uv" secondAttribute="trailing" constant="30" id="RXg-Jh-xXL"/>
+                            <constraint firstItem="VjD-0r-hYG" firstAttribute="top" secondItem="A1F-uT-9qn" secondAttribute="bottom" constant="20" id="UYb-Px-21v"/>
+                            <constraint firstItem="g8F-Fb-CRx" firstAttribute="top" secondItem="VjD-0r-hYG" secondAttribute="bottom" constant="15" id="Wn1-9j-njA"/>
+                            <constraint firstItem="A1F-uT-9qn" firstAttribute="top" secondItem="9lQ-Vz-vYP" secondAttribute="bottom" constant="15" id="ZmK-HM-v57"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="A1F-uT-9qn" secondAttribute="trailing" constant="30" id="ah0-D0-bM1"/>
+                            <constraint firstItem="ElK-kf-l0P" firstAttribute="top" secondItem="9lQ-Vz-vYP" secondAttribute="bottom" constant="15" id="aq2-vs-82H"/>
+                            <constraint firstItem="9lQ-Vz-vYP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="eFW-Sn-zbD"/>
+                            <constraint firstItem="A1F-uT-9qn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="gup-vg-RPW"/>
+                            <constraint firstAttribute="trailing" secondItem="VjD-0r-hYG" secondAttribute="trailing" constant="15" id="hIN-6s-YTA"/>
+                            <constraint firstItem="g8F-Fb-CRx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="lOF-zf-veI"/>
+                            <constraint firstItem="vLB-bb-3uv" firstAttribute="top" secondItem="VjD-0r-hYG" secondAttribute="bottom" constant="15" id="u2s-uF-0gf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9lQ-Vz-vYP" secondAttribute="trailing" id="u3e-Ct-pW5"/>
+                            <constraint firstItem="ElK-kf-l0P" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="zcT-lm-LF3"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="J6y-ZD-Niv"/>
+                                <exclude reference="0Uh-ul-AEa"/>
+                                <exclude reference="gup-vg-RPW"/>
+                                <exclude reference="EsM-Sm-5ZB"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="ElK-kf-l0P" id="tL6-JF-VaD"/>
+                        <outlet property="singleDataLabel" destination="g8F-Fb-CRx" id="IpK-qJ-vKk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="222.5" y="339.5"/>
+        </scene>
+    </scenes>
+</document>
