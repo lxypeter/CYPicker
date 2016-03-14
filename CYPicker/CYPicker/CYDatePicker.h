@@ -8,7 +8,6 @@
 
 #import "CYBasePicker.h"
 
-@class CYDatePickerView;
 @protocol CYDatePickerDelgate <NSObject>
 
 -(void)datePicker:(UIDatePicker *)dpView confirmSelectedDate:(NSDate *)selectedDate;

@@ -7,7 +7,7 @@
 //
 
 #import "CYBasePicker.h"
-@class CYDataSinglePicker;
+
 @protocol CYDataSinglePickerDelgate <NSObject>
 
 -(void)dataSinglePicker:(UIPickerView *)dpView confirmSelectedValue:(NSString *)selectedValue andSelectedIndex:(NSInteger)selectedIndex;
