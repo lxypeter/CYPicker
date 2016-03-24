@@ -19,7 +19,6 @@
         _maskButton.hidden = YES;
         [_maskButton addTarget:self action:@selector(clickCancelBtn) forControlEvents:UIControlEventTouchUpInside];
         
-        [[UIApplication sharedApplication].keyWindow addSubview:_maskButton];
     }
     return _maskButton;
 }
@@ -72,8 +71,6 @@
     self.contentView = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.toolBarView.frame), ScreenWidth, self.frame.size.height - CGRectGetMaxY(self.toolBarView.frame))];
     [self addSubview:self.contentView];
     
-    [[UIApplication sharedApplication].keyWindow addSubview:self];
-    
 }
 
 -(void)clickConfirmBtn{
@@ -86,8 +83,9 @@
 
 #pragma mark - 显示Picker
 -(void)showPicker{
-    [[UIApplication sharedApplication].keyWindow bringSubviewToFront:self.maskButton];
-    [[UIApplication sharedApplication].keyWindow bringSubviewToFront:self];
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:self.maskButton];
+    [[UIApplication sharedApplication].keyWindow addSubview:self];
     
     [self.maskButton setHidden:NO];
     [self setHidden:NO];
@@ -111,6 +109,9 @@
         [self setHidden:YES];
         [self.maskButton setHidden:YES];
     }];
+    
+    [self.maskButton removeFromSuperview];
+    [self removeFromSuperview];
 }
 
 #pragma mark - 设置确定按钮文字及颜色
