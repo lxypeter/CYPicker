@@ -17,15 +17,14 @@
 @implementation CYDataSinglePicker
 
 #pragma mark - 初始化
-+(instancetype)dataPickerWithDataSource:(NSArray *)dataSource andDelegate:(id<CYDataSinglePickerDelgate>)delegate{
++ (instancetype)dataPickerWithDataSource:(NSArray *)dataSource andDelegate:(id<CYDataSinglePickerDelgate>)delegate{
     CYDataSinglePicker *picker = [[CYDataSinglePicker alloc] init];
     picker.dataSource = dataSource;
     picker.delegate = delegate;
     return picker;
 }
 
-- (instancetype)init
-{
+- (instancetype)init{
     self = [super init];
     if (self) {
         [self addSubViewOfContentView];
@@ -42,7 +41,7 @@
     [self.contentView addSubview:self.dataPicker];
 }
 
--(void)setDataSource:(NSArray *)dataSource{
+- (void)setDataSource:(NSArray *)dataSource{
     _dataSource = dataSource;
     if (self.dataPicker) {
         [self.dataPicker reloadAllComponents];
@@ -50,22 +49,22 @@
 }
 
 
-#pragma mark - 点击确定
--(void)clickConfirmBtn{
+#pragma mark - 点击事件
+- (void)clickConfirmBtn{
     [super clickConfirmBtn];
     [self.delegate dataSinglePicker:self.dataPicker confirmSelectedValue:self.selectedValue andSelectedIndex:self.selectedIndex];
 }
 
 #pragma mark - UIPickerView 代理
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
 }
 
--(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     return self.dataSource.count;
 }
 
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     NSString *title = self.dataSource[row];
     
     if (title && [title isKindOfClass:[NSString class]]) {
@@ -75,7 +74,7 @@
     return @"";
 }
 
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     self.selectedIndex=row;
     self.selectedValue=self.dataSource[row];
 }

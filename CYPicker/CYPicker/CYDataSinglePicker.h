@@ -10,21 +10,17 @@
 
 @protocol CYDataSinglePickerDelgate <NSObject>
 
--(void)dataSinglePicker:(UIPickerView *)dpView confirmSelectedValue:(NSString *)selectedValue andSelectedIndex:(NSInteger)selectedIndex;
+- (void)dataSinglePicker:(UIPickerView *)dpView confirmSelectedValue:(NSString *)selectedValue andSelectedIndex:(NSInteger)selectedIndex;
 
 @end
 
 @interface CYDataSinglePicker : CYBasePicker
 
 @property (nonatomic,strong) NSArray *dataSource;
-
 @property (nonatomic,strong) NSString *selectedValue;
-
 @property (nonatomic,assign) NSInteger selectedIndex;
+@property (weak, nonatomic) id<CYDataSinglePickerDelgate> delegate;
 
-@property (strong, nonatomic) id<CYDataSinglePickerDelgate> delegate;
-
-
-+(instancetype)dataPickerWithDataSource:(NSArray *)dataSource andDelegate:(id<CYDataSinglePickerDelgate>)delegate;
++ (instancetype)dataPickerWithDataSource:(NSArray *)dataSource andDelegate:(id<CYDataSinglePickerDelgate>)delegate;
 
 @end

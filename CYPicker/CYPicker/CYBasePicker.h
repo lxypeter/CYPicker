@@ -30,7 +30,7 @@
  *  @param title
  *  @param titleColor 
  */
--(void)setConfirmBtnTitle:(NSString *)title Color:(UIColor *)titleColor;
+- (void)setConfirmBtnTitle:(NSString *)title Color:(UIColor *)titleColor;
 
 /**
  *  设置取消按钮文字及颜色
@@ -38,25 +38,25 @@
  *  @param title
  *  @param titleColor
  */
--(void)setCancelBtnTitle:(NSString *)title Color:(UIColor *)titleColor;
+- (void)setCancelBtnTitle:(NSString *)title Color:(UIColor *)titleColor;
 
 /**
  *  显示Picker
  */
--(void)showPicker;
+- (void)showPicker;
 
 /**
  *  隐藏Picker
  */
--(void)hidePicker;
+- (void)hidePicker;
 
 /**
  *  点击确定按钮
  */
--(void)clickConfirmBtn;
+- (void)clickConfirmBtn;
 
 /**
  *  点击取消按钮
  */
--(void)clickCancelBtn;
+- (void)clickCancelBtn;
 @end

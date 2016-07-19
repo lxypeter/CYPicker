@@ -11,7 +11,7 @@
 @implementation CYBasePicker
 
 #pragma mark - 懒加载
--(UIButton *)maskButton{
+- (UIButton *)maskButton{
     if (!_maskButton) {
         _maskButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
         _maskButton.backgroundColor = [UIColor blackColor];
@@ -23,8 +23,7 @@
     return _maskButton;
 }
 
-- (instancetype)init
-{
+- (instancetype)init{
     self = [super init];
     if (self) {
         
@@ -35,7 +34,7 @@
 }
 
 #pragma mark 生成Picker内控件
--(void)setBaseContentView{
+- (void)setBaseContentView{
     
     self.frame = CGRectMake(0, ScreenHeight, ScreenWidth, kPickerHeight);
     
@@ -73,16 +72,16 @@
     
 }
 
--(void)clickConfirmBtn{
+- (void)clickConfirmBtn{
     [self hidePicker];
 }
 
--(void)clickCancelBtn{
+- (void)clickCancelBtn{
     [self hidePicker];
 }
 
-#pragma mark - 显示Picker
--(void)showPicker{
+#pragma mark - 显示/隐藏Picker
+- (void)showPicker{
     
     [[UIApplication sharedApplication].keyWindow addSubview:self.maskButton];
     [[UIApplication sharedApplication].keyWindow addSubview:self];
@@ -99,8 +98,7 @@
     }];
 }
 
-#pragma mark - 隐藏Picker
--(void)hidePicker{
+- (void)hidePicker{
     [UIView animateWithDuration:0.25 animations:^{
         CGRect temFrame = self.frame;
         temFrame.origin.y = ScreenHeight;
@@ -114,8 +112,8 @@
     [self removeFromSuperview];
 }
 
-#pragma mark - 设置确定按钮文字及颜色
--(void)setConfirmBtnTitle:(NSString *)title Color:(UIColor *)titleColor{
+#pragma mark - 设置按钮文字及颜色
+- (void)setConfirmBtnTitle:(NSString *)title Color:(UIColor *)titleColor{
 
     if(title&&[title stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]].length!=0){
         [self.confirmBtn setTitle:title forState:UIControlStateNormal];
@@ -127,7 +125,6 @@
     
 }
 
-#pragma mark - 设置取消按钮文字及颜色
 -(void)setCancelBtnTitle:(NSString *)title Color:(UIColor *)titleColor{
     
     if(title&&[title stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]].length!=0){
