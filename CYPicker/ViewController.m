@@ -9,10 +9,10 @@
 #import "ViewController.h"
 #import "CYPicker.h"
 
-@interface ViewController () <CYDatePickerDelgate,CYDataSinglePickerDelgate>
+@interface ViewController ()
 
 @property (nonatomic,strong) CYDatePicker *cyDatePicker;
-@property (nonatomic,strong) CYDataSinglePicker *cyDataSinglePicker;
+@property (nonatomic,strong) CYDataPicker *cyDataSinglePicker;
 @property (nonatomic,strong) NSDateFormatter *formatter;
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
@@ -25,15 +25,23 @@
 #pragma mark - 懒加载
 - (CYDatePicker *)cyDatePicker{
     if (!_cyDatePicker) {
-        _cyDatePicker = [CYDatePicker datePickerWithDelegate:self];
+        _cyDatePicker = [CYDatePicker datePickerWithDateSelectedBlock:^(NSDate *selectedDate) {
+            NSString *dateString = [self.formatter stringFromDate:selectedDate];
+            self.dateLabel.text = dateString;
+        }];
 //        _cyDatePicker.datePickerMode = UIDatePickerModeDate;
     }
     return _cyDatePicker;
 }
 
-- (CYDataSinglePicker *)cyDataSinglePicker{
+- (CYDataPicker *)cyDataSinglePicker{
     if (!_cyDataSinglePicker) {
-        _cyDataSinglePicker = [CYDataSinglePicker dataPickerWithDataSource:@[@"选项1",@"选项2",@"选项3"] andDelegate:self];
+        _cyDataSinglePicker = [CYDataPicker dataPickerWithType:CYDataPickerTypeSingleSelect dataSource:@[@"选项1",@"选项2",@"选项3"]];
+        __weak typeof(self) weakSelf = self;
+        _cyDataSinglePicker.dataSingleSelectedBlock = ^(NSString *selectedValue,NSInteger selectedIndex){
+            NSString *result = [NSString stringWithFormat:@"选中第%li项，【%@】",selectedIndex,selectedValue];
+            weakSelf.singleDataLabel.text = result;
+        };
     }
     return _cyDataSinglePicker;
 }
@@ -58,19 +66,6 @@
 
 - (IBAction)showDataSinglePicker:(id)sender {
     [self.cyDataSinglePicker showPicker];
-}
-
-#pragma mark - 代理方法
-- (void)datePicker:(UIDatePicker *)dpView confirmSelectedDate:(NSDate *)selectedDate{
-    NSString *dateString = [self.formatter stringFromDate:selectedDate];
-    self.dateLabel.text = dateString;
-}
-
-- (void)dataSinglePicker:(UIPickerView *)dpView confirmSelectedValue:(NSString *)selectedValue andSelectedIndex:(NSInteger)selectedIndex{
-    
-    NSString *result = [NSString stringWithFormat:@"选中第%li项，【%@】",selectedIndex,selectedValue];
-    
-    self.singleDataLabel.text = result;
 }
 
 @end

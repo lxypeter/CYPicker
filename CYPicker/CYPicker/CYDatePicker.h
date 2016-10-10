@@ -8,20 +8,16 @@
 
 #import "CYBasePicker.h"
 
-@protocol CYDatePickerDelgate <NSObject>
-
--(void)datePicker:(UIDatePicker *)dpView confirmSelectedDate:(NSDate *)selectedDate;
-
-@end
+typedef void(^CYDateSelectedBlock)(NSDate *selectedDate);
 
 @interface CYDatePicker : CYBasePicker
 
 @property (strong, nonatomic) UIDatePicker *datePicker;
 @property (assign, nonatomic) UIDatePickerMode datePickerMode;
-@property (weak, nonatomic) id<CYDatePickerDelgate> delegate;
+@property (copy, nonatomic) CYDateSelectedBlock dateSelectedBlock;
 @property (strong, nonatomic) NSDate *currentDate;
 
-+ (instancetype)datePickerWithDelegate:(id<CYDatePickerDelgate>)delegate;
++ (instancetype)datePickerWithDateSelectedBlock:(CYDateSelectedBlock)dateSelectedBlock;
 
 /**
  *  显示Picker并设定当前选中时间

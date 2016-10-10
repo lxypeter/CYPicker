@@ -15,18 +15,10 @@
 @implementation CYDatePicker
 
 #pragma mark - 初始化
-+ (instancetype)datePickerWithDelegate:(id<CYDatePickerDelgate>)delegate{
++ (instancetype)datePickerWithDateSelectedBlock:(CYDateSelectedBlock)dateSelectedBlock{
     CYDatePicker *dataPicker = [[CYDatePicker alloc]init];
-    dataPicker.delegate = delegate;
+    dataPicker.dateSelectedBlock = dateSelectedBlock;
     return dataPicker;
-}
-
-- (instancetype)init{
-    self = [super init];
-    if (self) {
-        [self addSubViewOfContentView];
-    }
-    return self;
 }
 
 - (void)addSubViewOfContentView{
@@ -41,7 +33,9 @@
 #pragma mark - 点击事件
 - (void)clickConfirmBtn{
     [super clickConfirmBtn];
-    [self.delegate datePicker:self.datePicker confirmSelectedDate:self.currentDate];
+    if (self.dateSelectedBlock) {
+        self.dateSelectedBlock(self.currentDate);
+    }
 }
 
 #pragma mark - 简便方法

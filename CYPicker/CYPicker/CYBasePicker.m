@@ -26,9 +26,8 @@
 - (instancetype)init{
     self = [super init];
     if (self) {
-        
         [self setBaseContentView];
-        
+        [self addSubViewOfContentView];
     }
     return self;
 }
@@ -53,16 +52,18 @@
     
     //工具条按钮
     CGFloat border = 15;
-    CGFloat btnWidth = 50;
+    CGFloat btnWidth = 80;
     
     self.confirmBtn = [[UIButton alloc]initWithFrame:CGRectMake(ScreenWidth-border - btnWidth, 0, btnWidth, self.toolBarView.frame.size.height)];
-    [self.confirmBtn setTitle:@"确定" forState:UIControlStateNormal];
+    self.confirmBtn.titleLabel.textAlignment = NSTextAlignmentRight;
+    [self.confirmBtn setTitle:NSLocalizedString(@"Confirm", nil) forState:UIControlStateNormal];
     [self.confirmBtn setTitleColor:[self colorFromHexString:@"#000000"] forState:UIControlStateNormal];
     [self.confirmBtn addTarget:self action:@selector(clickConfirmBtn) forControlEvents:UIControlEventTouchUpInside];
     [self.toolBarView addSubview:self.confirmBtn];
     
-    self.cancelBtn = [[UIButton alloc]initWithFrame:CGRectMake(15, 0, 50, self.toolBarView.frame.size.height)];
-    [self.cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
+    self.cancelBtn = [[UIButton alloc]initWithFrame:CGRectMake(border, 0, btnWidth, self.toolBarView.frame.size.height)];
+    self.cancelBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
+    [self.cancelBtn setTitle:NSLocalizedString(@"Cancel", nil) forState:UIControlStateNormal];
     [self.cancelBtn setTitleColor:[self colorFromHexString:@"#000000"] forState:UIControlStateNormal];
     [self.cancelBtn addTarget:self action:@selector(clickCancelBtn) forControlEvents:UIControlEventTouchUpInside];
     [self.toolBarView addSubview:self.cancelBtn];
@@ -70,6 +71,9 @@
     self.contentView = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.toolBarView.frame), ScreenWidth, self.frame.size.height - CGRectGetMaxY(self.toolBarView.frame))];
     [self addSubview:self.contentView];
     
+}
+
+- (void)addSubViewOfContentView{
 }
 
 - (void)clickConfirmBtn{
@@ -106,10 +110,10 @@
     } completion:^(BOOL finished) {
         [self setHidden:YES];
         [self.maskButton setHidden:YES];
+        [self.maskButton removeFromSuperview];
+        [self removeFromSuperview];
     }];
     
-    [self.maskButton removeFromSuperview];
-    [self removeFromSuperview];
 }
 
 #pragma mark - 设置按钮文字及颜色
