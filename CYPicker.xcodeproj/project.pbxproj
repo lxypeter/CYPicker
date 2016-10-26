@@ -15,8 +15,9 @@
 		E13EB9D71C914FE200CF7B57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13EB9D51C914FE200CF7B57 /* LaunchScreen.storyboard */; };
 		E13EB9E21C914FE200CF7B57 /* CYPickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E13EB9E11C914FE200CF7B57 /* CYPickerTests.m */; };
 		E152A1C11DAB705300F7C331 /* CYBasePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E152A1BB1DAB705300F7C331 /* CYBasePicker.m */; };
-		E152A1C21DAB705300F7C331 /* CYDataPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E152A1BD1DAB705300F7C331 /* CYDataPicker.m */; };
 		E152A1C31DAB705300F7C331 /* CYDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E152A1BF1DAB705300F7C331 /* CYDatePicker.m */; };
+		E1B806F51DC0A3840031B55D /* CYSingleStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B806F41DC0A3840031B55D /* CYSingleStringPicker.m */; };
+		E1B806F81DC0A98B0031B55D /* CYMutipleStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B806F71DC0A98B0031B55D /* CYMutipleStringPicker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,11 +46,13 @@
 		E13EB9E31C914FE200CF7B57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E152A1BA1DAB705300F7C331 /* CYBasePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYBasePicker.h; sourceTree = "<group>"; };
 		E152A1BB1DAB705300F7C331 /* CYBasePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYBasePicker.m; sourceTree = "<group>"; };
-		E152A1BC1DAB705300F7C331 /* CYDataPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYDataPicker.h; sourceTree = "<group>"; };
-		E152A1BD1DAB705300F7C331 /* CYDataPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYDataPicker.m; sourceTree = "<group>"; };
 		E152A1BE1DAB705300F7C331 /* CYDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYDatePicker.h; sourceTree = "<group>"; };
 		E152A1BF1DAB705300F7C331 /* CYDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYDatePicker.m; sourceTree = "<group>"; };
 		E152A1C01DAB705300F7C331 /* CYPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPicker.h; sourceTree = "<group>"; };
+		E1B806F31DC0A3840031B55D /* CYSingleStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYSingleStringPicker.h; sourceTree = "<group>"; };
+		E1B806F41DC0A3840031B55D /* CYSingleStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYSingleStringPicker.m; sourceTree = "<group>"; };
+		E1B806F61DC0A98B0031B55D /* CYMutipleStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMutipleStringPicker.h; sourceTree = "<group>"; };
+		E1B806F71DC0A98B0031B55D /* CYMutipleStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMutipleStringPicker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,11 +130,13 @@
 			children = (
 				E152A1BA1DAB705300F7C331 /* CYBasePicker.h */,
 				E152A1BB1DAB705300F7C331 /* CYBasePicker.m */,
-				E152A1BC1DAB705300F7C331 /* CYDataPicker.h */,
-				E152A1BD1DAB705300F7C331 /* CYDataPicker.m */,
 				E152A1BE1DAB705300F7C331 /* CYDatePicker.h */,
 				E152A1BF1DAB705300F7C331 /* CYDatePicker.m */,
 				E152A1C01DAB705300F7C331 /* CYPicker.h */,
+				E1B806F31DC0A3840031B55D /* CYSingleStringPicker.h */,
+				E1B806F41DC0A3840031B55D /* CYSingleStringPicker.m */,
+				E1B806F61DC0A98B0031B55D /* CYMutipleStringPicker.h */,
+				E1B806F71DC0A98B0031B55D /* CYMutipleStringPicker.m */,
 			);
 			path = CYPicker;
 			sourceTree = "<group>";
@@ -238,8 +243,9 @@
 			files = (
 				E13EB9CF1C914FE200CF7B57 /* ViewController.m in Sources */,
 				E13EB9CC1C914FE200CF7B57 /* AppDelegate.m in Sources */,
+				E1B806F51DC0A3840031B55D /* CYSingleStringPicker.m in Sources */,
+				E1B806F81DC0A98B0031B55D /* CYMutipleStringPicker.m in Sources */,
 				E152A1C11DAB705300F7C331 /* CYBasePicker.m in Sources */,
-				E152A1C21DAB705300F7C331 /* CYDataPicker.m in Sources */,
 				E13EB9C91C914FE200CF7B57 /* main.m in Sources */,
 				E152A1C31DAB705300F7C331 /* CYDatePicker.m in Sources */,
 			);

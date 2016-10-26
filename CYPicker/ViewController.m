@@ -12,7 +12,7 @@
 @interface ViewController ()
 
 @property (nonatomic,strong) CYDatePicker *cyDatePicker;
-@property (nonatomic,strong) CYDataPicker *cyDataSinglePicker;
+@property (nonatomic,strong) CYSingleStringPicker *cyDataSinglePicker;
 @property (nonatomic,strong) NSDateFormatter *formatter;
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
@@ -34,14 +34,13 @@
     return _cyDatePicker;
 }
 
-- (CYDataPicker *)cyDataSinglePicker{
+- (CYSingleStringPicker *)cyDataSinglePicker{
     if (!_cyDataSinglePicker) {
-        _cyDataSinglePicker = [CYDataPicker dataPickerWithType:CYDataPickerTypeSingleSelect dataSource:@[@"选项1",@"选项2",@"选项3"]];
         __weak typeof(self) weakSelf = self;
-        _cyDataSinglePicker.dataSingleSelectedBlock = ^(NSString *selectedValue,NSInteger selectedIndex){
+        _cyDataSinglePicker = [CYSingleStringPicker dataPickerWithDataSource:@[@"选项1",@"选项2",@"选项3"] selectedBlock:^(NSString *selectedValue, NSInteger selectedIndex) {
             NSString *result = [NSString stringWithFormat:@"选中第%li项，【%@】",selectedIndex,selectedValue];
             weakSelf.singleDataLabel.text = result;
-        };
+        }];
     }
     return _cyDataSinglePicker;
 }

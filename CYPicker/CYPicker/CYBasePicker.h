@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#define ScreenWidth [UIScreen mainScreen].bounds.size.width
-#define ScreenHeight [UIScreen mainScreen].bounds.size.height
-#define kPickerHeight ScreenHeight * 0.4
-
 @interface CYBasePicker : UIView
 
 @property (strong, nonatomic) UIView *toolBarView;

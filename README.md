@@ -1,5 +1,5 @@
 # CYPicker
-选择栏的简单封装，包含日期选择，单项选择等
+选择栏的简单封装，包含日期选择，单选多选
 
 ##使用方法
   *通用方法
@@ -33,10 +33,14 @@
 
   *CYDatePicker
 ```
-CYDatePicker *cyDatePicker = [CYDatePicker datePickerWithDelegate:self];
+CYDatePicker *cyDatePicker = [CYDatePicker datePickerWithDateSelectedBlock:^(NSDate *selectedDate) {
+    //选中事件
+}];
 ```
 
-  *CYDataSinglePicker
+  *CYSingleStringPicker
 ```
-CYDataSinglePicker *cyDataSinglePicker = [CYDataSinglePicker dataPickerWithDataSource:@[@"选项1",@"选项2",@"选项3"] andDelegate:self];
+CYSingleStringPicker *cyDataSinglePicker = [CYSingleStringPicker dataPickerWithDataSource:@[@"选项1",@"选项2",@"选项3"] selectedBlock:^(NSString *selectedValue, NSInteger selectedIndex) {
+    //选中事件
+}];
 ```
